@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<!--
+  SentinelBot Mk II for Gazebo Sim (Harmonic).
+  Frame: X forward, Y left, Z up, origin on the floor under the chassis centre (same as the Fusion model).
+  Meshes are the per-component STL exports of the Fusion design, in millimetres (scale 0.001).
+  Motion: the base is a free dynamic body (real mass/inertia, contacts, IMU). The resultant force/torque of the four
+  mecanum wheels is applied by the mecanum_base_sim node (ApplyLinkWrench) with the design's acceleration limits;
+  wheel contacts are near-frictionless because mecanum rollers slide in every direction. Roller physics is not simulated
+  (the wheels are visual links spun by mecanum_base_sim at the inverse-kinematics rate, not a source of traction)
+  (neither dartsim nor bullet-featherstone in this Gazebo build honour anisotropic friction).
+-->
+<sdf version="1.9" xmlns:gz="http://gazebosim.org/schema">
+  <model name="sentinel_mk2">
+    <static>false</static>
+
+    <link name="base_link">
+      <inertial>
+        <pose>0 0 0.054 0 0 0</pose>
+        <mass>4.0</mass>
+        <inertia><ixx>0.014</ixx><iyy>0.023</iyy><izz>0.033</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+
+      <!-- ===== collisions: chassis box + four wheel cylinders (rolling resistance only; mecanum rollers
+           slide in every direction, so the wheel contact is nearly frictionless and thrust comes from the wrench) ===== -->
+      <collision name="chassis_col">
+        <pose>0 0 0.060 0 0 0</pose>
+        <geometry><box><size>0.250 0.190 0.086</size></box></geometry>
+      </collision>
+      <collision name="wheel_fl_col"><pose>0.09 0.124 0.042 1.5708 0 0</pose>
+        <geometry><cylinder><radius>0.042</radius><length>0.038</length></cylinder></geometry>
+        <surface><friction><ode><mu>0.005</mu><mu2>0.005</mu2></ode></friction></surface>
+      </collision>
+      <collision name="wheel_fr_col"><pose>0.09 -0.124 0.042 1.5708 0 0</pose>
+        <geometry><cylinder><radius>0.042</radius><length>0.038</length></cylinder></geometry>
+        <surface><friction><ode><mu>0.005</mu><mu2>0.005</mu2></ode></friction></surface>
+      </collision>
+      <collision name="wheel_rl_col"><pose>-0.09 0.124 0.042 1.5708 0 0</pose>
+        <geometry><cylinder><radius>0.042</radius><length>0.038</length></cylinder></geometry>
+        <surface><friction><ode><mu>0.005</mu><mu2>0.005</mu2></ode></friction></surface>
+      </collision>
+      <collision name="wheel_rr_col"><pose>-0.09 -0.124 0.042 1.5708 0 0</pose>
+        <geometry><cylinder><radius>0.042</radius><length>0.038</length></cylinder></geometry>
+        <surface><friction><ode><mu>0.005</mu><mu2>0.005</mu2></ode></friction></surface>
+      </collision>
+
+      <!-- ===== visuals: one per Fusion component ===== -->
+      <visual name="chassis_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Chassis.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.06 0.06 0.07 1</ambient><diffuse>0.08 0.08 0.09 1</diffuse><specular>0.2 0.2 0.2 1</specular></material></visual>
+      <visual name="drivetrain_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Drivetrain_Mecanum.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.5 0.5 0.52 1</ambient><diffuse>0.65 0.65 0.68 1</diffuse><specular>0.5 0.5 0.5 1</specular></material></visual>
+      <visual name="power_compute_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Power_Compute.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.1 0.2 0.5 1</ambient><diffuse>0.15 0.3 0.7 1</diffuse></material></visual>
+      <visual name="us_front_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_Ultrasonic_Front.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.75 0.75 0.75 1</diffuse><specular>0.6 0.6 0.6 1</specular></material></visual>
+      <visual name="us_rear_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_Ultrasonic_Rear.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.75 0.75 0.75 1</diffuse><specular>0.6 0.6 0.6 1</specular></material></visual>
+      <visual name="us_left_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_Ultrasonic_Left.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.75 0.75 0.75 1</diffuse><specular>0.6 0.6 0.6 1</specular></material></visual>
+      <visual name="us_right_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_Ultrasonic_Right.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.75 0.75 0.75 1</diffuse><specular>0.6 0.6 0.6 1</specular></material></visual>
+      <visual name="ir_fl_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_IR_FL.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material></visual>
+      <visual name="ir_fr_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_IR_FR.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material></visual>
+      <visual name="ir_rl_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_IR_RL.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material></visual>
+      <visual name="ir_rr_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_IR_RR.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material></visual>
+      <visual name="imu_board_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_IMU_BNO085.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.1 0.2 0.5 1</ambient><diffuse>0.15 0.3 0.7 1</diffuse></material></visual>
+      <visual name="lidar_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_LiDAR_RPLIDAR_A1.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.15 0.15 0.16 1</ambient><diffuse>0.22 0.22 0.24 1</diffuse><specular>0.4 0.4 0.4 1</specular></material></visual>
+      <visual name="camera_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Sensor_Camera_OAKD_Lite.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.4 0.4 0.42 1</diffuse></material></visual>
+      <visual name="alert_module_visual"><geometry><mesh><uri>model://sentinel_mk2/meshes/Alert_Safety_Module.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.6 0.08 0.08 1</ambient><diffuse>0.85 0.1 0.1 1</diffuse><specular>0.5 0.3 0.3 1</specular></material></visual>
+
+      <!-- ===== sensors ===== -->
+      <!-- IMU BNO085 at the centre of rotation on the base plate -->
+      <sensor name="imu" type="imu">
+        <pose>0 0 0.023 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <visualize>false</visualize>
+        <topic>imu</topic>
+        <gz_frame_id>imu_link</gz_frame_id>
+      </sensor>
+
+      <!-- RPLIDAR A1 on the deck, scan plane at 142 mm -->
+      <sensor name="lidar" type="gpu_lidar">
+        <pose>-0.025 0 0.142 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <visualize>true</visualize>
+        <topic>scan</topic>
+        <gz_frame_id>lidar_link</gz_frame_id>
+        <lidar>
+          <scan><horizontal><samples>360</samples><resolution>1</resolution><min_angle>-3.14159</min_angle><max_angle>3.14159</max_angle></horizontal></scan>
+          <range><min>0.15</min><max>12.0</max><resolution>0.01</resolution></range>
+          <noise><type>gaussian</type><mean>0.0</mean><stddev>0.01</stddev></noise>
+        </lidar>
+      </sensor>
+
+      <!-- HC-SR04 ultrasonic x4: 15 deg cone, 0.02 - 4.0 m, 10 Hz -->
+      <sensor name="us_front" type="gpu_lidar"><pose>0.125 0 0.052 0 0 0</pose><always_on>1</always_on><update_rate>10</update_rate><visualize>true</visualize><topic>us_front</topic><gz_frame_id>us_front_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>15</samples><resolution>1</resolution><min_angle>-0.1309</min_angle><max_angle>0.1309</max_angle></horizontal></scan><range><min>0.02</min><max>4.0</max><resolution>0.003</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.005</stddev></noise></lidar></sensor>
+      <sensor name="us_rear" type="gpu_lidar"><pose>-0.125 0 0.052 0 0 3.14159</pose><always_on>1</always_on><update_rate>10</update_rate><visualize>true</visualize><topic>us_rear</topic><gz_frame_id>us_rear_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>15</samples><resolution>1</resolution><min_angle>-0.1309</min_angle><max_angle>0.1309</max_angle></horizontal></scan><range><min>0.02</min><max>4.0</max><resolution>0.003</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.005</stddev></noise></lidar></sensor>
+      <sensor name="us_left" type="gpu_lidar"><pose>0 0.095 0.052 0 0 1.5708</pose><always_on>1</always_on><update_rate>10</update_rate><visualize>true</visualize><topic>us_left</topic><gz_frame_id>us_left_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>15</samples><resolution>1</resolution><min_angle>-0.1309</min_angle><max_angle>0.1309</max_angle></horizontal></scan><range><min>0.02</min><max>4.0</max><resolution>0.003</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.005</stddev></noise></lidar></sensor>
+      <sensor name="us_right" type="gpu_lidar"><pose>0 -0.095 0.052 0 0 -1.5708</pose><always_on>1</always_on><update_rate>10</update_rate><visualize>true</visualize><topic>us_right</topic><gz_frame_id>us_right_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>15</samples><resolution>1</resolution><min_angle>-0.1309</min_angle><max_angle>0.1309</max_angle></horizontal></scan><range><min>0.02</min><max>4.0</max><resolution>0.003</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.005</stddev></noise></lidar></sensor>
+
+      <!-- Sharp GP2Y0A21 IR x4 in the corner pods, +-45 deg, 5 deg beam, 0.10 - 0.80 m, 25 Hz -->
+      <sensor name="ir_fl" type="gpu_lidar"><pose>0.113 0.083 0.045 0 0 0.7854</pose><always_on>1</always_on><update_rate>25</update_rate><visualize>true</visualize><topic>ir_fl</topic><gz_frame_id>ir_fl_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>5</samples><resolution>1</resolution><min_angle>-0.0436</min_angle><max_angle>0.0436</max_angle></horizontal></scan><range><min>0.10</min><max>0.80</max><resolution>0.002</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.004</stddev></noise></lidar></sensor>
+      <sensor name="ir_fr" type="gpu_lidar"><pose>0.113 -0.083 0.045 0 0 -0.7854</pose><always_on>1</always_on><update_rate>25</update_rate><visualize>true</visualize><topic>ir_fr</topic><gz_frame_id>ir_fr_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>5</samples><resolution>1</resolution><min_angle>-0.0436</min_angle><max_angle>0.0436</max_angle></horizontal></scan><range><min>0.10</min><max>0.80</max><resolution>0.002</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.004</stddev></noise></lidar></sensor>
+      <sensor name="ir_rl" type="gpu_lidar"><pose>-0.113 0.083 0.045 0 0 2.3562</pose><always_on>1</always_on><update_rate>25</update_rate><visualize>true</visualize><topic>ir_rl</topic><gz_frame_id>ir_rl_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>5</samples><resolution>1</resolution><min_angle>-0.0436</min_angle><max_angle>0.0436</max_angle></horizontal></scan><range><min>0.10</min><max>0.80</max><resolution>0.002</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.004</stddev></noise></lidar></sensor>
+      <sensor name="ir_rr" type="gpu_lidar"><pose>-0.113 -0.083 0.045 0 0 -2.3562</pose><always_on>1</always_on><update_rate>25</update_rate><visualize>true</visualize><topic>ir_rr</topic><gz_frame_id>ir_rr_link</gz_frame_id>
+        <lidar><scan><horizontal><samples>5</samples><resolution>1</resolution><min_angle>-0.0436</min_angle><max_angle>0.0436</max_angle></horizontal></scan><range><min>0.10</min><max>0.80</max><resolution>0.002</resolution></range><noise><type>gaussian</type><mean>0</mean><stddev>0.004</stddev></noise></lidar></sensor>
+    </link>
+
+
+    <!-- FL wheel: visual only. The chassis carries the collision geometry and the body is
+         driven by the resultant wheel wrench, so this link bears no load; it exists so the wheel can be
+         seen turning at the rate the mecanum inverse kinematics demands. Its inertia is negligible,
+         which keeps spinning it from disturbing the body. -->
+    <link name="wheel_fl">
+      <pose>0.09 0.124 0.042 0 0 0</pose>
+      <inertial><mass>0.01</mass>
+        <inertia><ixx>1e-5</ixx><iyy>1e-5</iyy><izz>1e-5</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <visual name="wheel_fl_visual"><pose>-0.090 -0.124 -0.042 0 0 0</pose><geometry><mesh><uri>model://sentinel_mk2/meshes/Mecanum_Wheel_FL.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.10 0.12 0.20 1</ambient><diffuse>0.12 0.15 0.28 1</diffuse><specular>0.3 0.3 0.4 1</specular></material></visual>
+    </link>
+    <joint name="wheel_fl_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_fl</child>
+      <axis><xyz>0 1 0</xyz>
+        <limit><lower>-1e16</lower><upper>1e16</upper></limit>
+        <dynamics><damping>0.0</damping><friction>0.0</friction></dynamics>
+      </axis>
+    </joint>
+    <!-- FR wheel: visual only. The chassis carries the collision geometry and the body is
+         driven by the resultant wheel wrench, so this link bears no load; it exists so the wheel can be
+         seen turning at the rate the mecanum inverse kinematics demands. Its inertia is negligible,
+         which keeps spinning it from disturbing the body. -->
+    <link name="wheel_fr">
+      <pose>0.09 -0.124 0.042 0 0 0</pose>
+      <inertial><mass>0.01</mass>
+        <inertia><ixx>1e-5</ixx><iyy>1e-5</iyy><izz>1e-5</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <visual name="wheel_fr_visual"><pose>-0.090 0.124 -0.042 0 0 0</pose><geometry><mesh><uri>model://sentinel_mk2/meshes/Mecanum_Wheel_FR.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.10 0.12 0.20 1</ambient><diffuse>0.12 0.15 0.28 1</diffuse><specular>0.3 0.3 0.4 1</specular></material></visual>
+    </link>
+    <joint name="wheel_fr_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_fr</child>
+      <axis><xyz>0 1 0</xyz>
+        <limit><lower>-1e16</lower><upper>1e16</upper></limit>
+        <dynamics><damping>0.0</damping><friction>0.0</friction></dynamics>
+      </axis>
+    </joint>
+    <!-- RL wheel: visual only. The chassis carries the collision geometry and the body is
+         driven by the resultant wheel wrench, so this link bears no load; it exists so the wheel can be
+         seen turning at the rate the mecanum inverse kinematics demands. Its inertia is negligible,
+         which keeps spinning it from disturbing the body. -->
+    <link name="wheel_rl">
+      <pose>-0.09 0.124 0.042 0 0 0</pose>
+      <inertial><mass>0.01</mass>
+        <inertia><ixx>1e-5</ixx><iyy>1e-5</iyy><izz>1e-5</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <visual name="wheel_rl_visual"><pose>0.090 -0.124 -0.042 0 0 0</pose><geometry><mesh><uri>model://sentinel_mk2/meshes/Mecanum_Wheel_RL.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.10 0.12 0.20 1</ambient><diffuse>0.12 0.15 0.28 1</diffuse><specular>0.3 0.3 0.4 1</specular></material></visual>
+    </link>
+    <joint name="wheel_rl_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_rl</child>
+      <axis><xyz>0 1 0</xyz>
+        <limit><lower>-1e16</lower><upper>1e16</upper></limit>
+        <dynamics><damping>0.0</damping><friction>0.0</friction></dynamics>
+      </axis>
+    </joint>
+    <!-- RR wheel: visual only. The chassis carries the collision geometry and the body is
+         driven by the resultant wheel wrench, so this link bears no load; it exists so the wheel can be
+         seen turning at the rate the mecanum inverse kinematics demands. Its inertia is negligible,
+         which keeps spinning it from disturbing the body. -->
+    <link name="wheel_rr">
+      <pose>-0.09 -0.124 0.042 0 0 0</pose>
+      <inertial><mass>0.01</mass>
+        <inertia><ixx>1e-5</ixx><iyy>1e-5</iyy><izz>1e-5</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <visual name="wheel_rr_visual"><pose>0.090 0.124 -0.042 0 0 0</pose><geometry><mesh><uri>model://sentinel_mk2/meshes/Mecanum_Wheel_RR.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry>
+        <material><ambient>0.10 0.12 0.20 1</ambient><diffuse>0.12 0.15 0.28 1</diffuse><specular>0.3 0.3 0.4 1</specular></material></visual>
+    </link>
+    <joint name="wheel_rr_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_rr</child>
+      <axis><xyz>0 1 0</xyz>
+        <limit><lower>-1e16</lower><upper>1e16</upper></limit>
+        <dynamics><damping>0.0</damping><friction>0.0</friction></dynamics>
+      </axis>
+    </joint>
+    <!-- base motion: mecanum_base_sim node applies the resultant wheel wrench (ApplyLinkWrench system in the world) -->
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>wheel_fl_joint</joint_name>
+      <topic>/model/sentinel_mk2/wheel_fl/cmd_vel</topic>
+    </plugin>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>wheel_fr_joint</joint_name>
+      <topic>/model/sentinel_mk2/wheel_fr/cmd_vel</topic>
+    </plugin>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>wheel_rl_joint</joint_name>
+      <topic>/model/sentinel_mk2/wheel_rl/cmd_vel</topic>
+    </plugin>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>wheel_rr_joint</joint_name>
+      <topic>/model/sentinel_mk2/wheel_rr/cmd_vel</topic>
+    </plugin>
+    <!-- so the wheel angles can be read back and checked, and so RViz can show the wheels turning -->
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>/model/sentinel_mk2/joint_state</topic>
+    </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <odom_topic>/model/sentinel_mk2/odometry</odom_topic>
+      <dimensions>2</dimensions>
+      <odom_publish_frequency>50</odom_publish_frequency>
+    </plugin>
+  </model>
+</sdf>

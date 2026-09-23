@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- A 0.14 m static box for tools/fsm_demo.py: placed against a front corner of the robot, it puts an
+     obstacle inside the infrared's 0.12 m critical distance (Section 5.1, BACKING_OFF). -->
+<sdf version="1.9">
+  <model name="corner_box">
+    <static>true</static>
+    <link name="link">
+      <collision name="c"><geometry><box><size>0.14 0.14 0.14</size></box></geometry></collision>
+      <visual name="v">
+        <geometry><box><size>0.14 0.14 0.14</size></box></geometry>
+        <material><ambient>0.85 0.45 0.1 1</ambient><diffuse>0.95 0.55 0.15 1</diffuse></material>
+      </visual>
+    </link>
+  </model>
+</sdf>

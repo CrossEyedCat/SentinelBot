@@ -1,0 +1,2 @@
+data: ALERT reason=TIPPING sensor=imu.tilt_deg value=49.79 from=PATROLLING
+---

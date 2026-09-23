@@ -1,0 +1,88 @@
+patrol_fsm:
+  ros__parameters:
+    # distances [m]
+    d_stop: 0.50          # PATROLLING -> OBSTACLE_AVOIDANCE
+    d_clear: 0.70         # OBSTACLE_AVOIDANCE -> PATROLLING (hysteresis 0.20 m)
+    ir_steer: 0.25        # both IR above this to resume patrol
+    ir_critical: 0.12     # any IR below this -> BACKING_OFF
+    ir_back_exit: 0.18    # BACKING_OFF ends only above this (hysteresis)
+    d_side_clear: 0.60    # holonomic only
+    d_rear_min: 0.25      # holonomic only
+    ir_wall_delta: 0.08   # holonomic only: both IR within this = flat wall -> rotate, not strafe
+    t_strafe_max: 2.5     # holonomic only: max strafe time before falling back to rotation
+    # IMU
+    imu_accel_spike: 8.0  # m/s^2 horizontal -> ALERT (collision)
+    imu_tilt_max: 30.0    # deg -> ALERT (tipping)
+    n_imu_confirm: 2
+    # velocities
+    v_patrol: 0.15        # m/s
+    w_turn: 0.60          # rad/s
+    v_back: -0.08         # m/s
+    v_strafe: 0.15        # m/s, holonomic only
+    v_goal: 0.18          # m/s, approach speed in NAVIGATING
+    # goal seeking (NAVIGATING): destinations clicked on the map
+    goal_tolerance: 0.10  # m, close enough to count as arrived
+    d_final: 0.60         # m, distance to the goal below which the final approach starts
+    d_stop_final: 0.22    # m, reduced front stop distance during the final approach
+    v_final: 0.10         # m/s, speed cap during the final approach
+    goal_yaw_align: 0.35  # rad, bearing error above which the robot turns before driving
+    k_goal_yaw: 1.2       # 1/s, heading gain while driving to the goal
+    k_goal_lat: 0.8       # 1/s, holonomic only: sideways trim while driving
+    t_goal_max: 120.0     # s, give up on a goal that cannot be reached
+    t_escape: 4.0         # s, drive on past an obstacle before re-aiming at the goal (0.72 m: a pillar is 0.3 m across and the robot 0.25 m wide)
+    n_avoid_max: 8        # avoidance episodes for one goal before declaring it unreachable
+    lookahead: 0.35       # m, how far along the planned route the robot steers at
+    # progress watchdog: commanded to move but not moving means wedged on something unseen
+    stuck_dist: 0.05      # m, movement below this does not count as progress
+    t_stuck: 4.0          # s, of no progress while driving before acting on it
+    # timing [s]
+    t_back: 0.60
+    t_back_max: 1.50
+    t_clear: 0.50
+    t_avoid_max: 10.0
+    sensor_timeout: 1.0
+    # debounce
+    n_confirm: 3
+    # behaviour
+    holonomic: false      # true for the mecanum platform (Mk II)
+    auto_start: false     # true: skip the operator "start" command
+    loop_rate: 10.0
+
+occupancy_mapper:
+  ros__parameters:
+    resolution: 0.05        # m per cell
+    size_m: 16.0            # square map side, centred on the odom origin
+    publish_period: 1.0     # s
+    map_frame: odom         # no loop closure, so the map frame is the odom frame
+    base_frame: base_link
+    l_free: -0.4            # log-odds added to a cell a beam passed through
+    l_occ: 0.85             # log-odds added to the cell a beam stopped in
+    l_min: -2.5
+    l_max: 3.5
+    occupied_above: 0.65    # probability drawn as occupied
+    free_below: 0.35        # probability drawn as free and driveable
+    max_clear_range: 5.0    # m, how far a ray that hit nothing is allowed to mark free
+    path_step: 0.05         # m of travel between points recorded on /path_travelled
+    path_max_points: 3000
+
+path_planner:
+  ros__parameters:
+    # the circle that contains the 250 x 190 mm chassis at any yaw, plus a margin: the centre of the
+    # robot can never be closer than this to an obstacle, so the map is blocked by that much
+    robot_radius: 0.176
+    safety_margin: 0.05
+    inflation_radius: 0.55  # m, cost decays to zero here; keeps paths off the walls
+    lethal_threshold: 65    # map value at or above this counts as an obstacle
+    allow_unknown: true     # plan through never-seen cells, at a higher cost
+    unknown_cost: 40
+    cost_weight: 0.6        # metres of detour worth avoiding a full-cost cell
+    replan_period: 2.0      # s, the map keeps growing while the robot drives
+    goal_snap_radius: 0.50  # m, a goal clicked on a wall moves to the nearest cell the robot fits in
+    map_frame: odom
+
+scan_to_range:
+  ros__parameters:
+    scan_topic: /scan
+    us_fov_deg: 15.0
+    ir_fov_deg: 5.0
+    ir_angle_deg: 30.0

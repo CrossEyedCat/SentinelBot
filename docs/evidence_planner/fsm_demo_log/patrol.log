@@ -1,0 +1,150 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-09-23-16-08-30-448519-DESKTOP-PV0OFAA-7537
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [scan_to_range-1]: process started with pid [7571]
+[INFO] [patrol_fsm-2]: process started with pid [7572]
+[INFO] [occupancy_mapper-3]: process started with pid [7573]
+[INFO] [path_planner-4]: process started with pid [7574]
+[scan_to_range-1] [INFO] [1790172510.672198603] [scan_to_range]: scan_to_range (per_sensor): us_front -> /ultrasonic, us_rear -> /ultrasonic_rear, us_left -> /ultrasonic_left, us_right -> /ultrasonic_right, ir_fl -> /ir_left, ir_fr -> /ir_right
+[occupancy_mapper-3] [INFO] [1790172510.676852666] [occupancy_mapper]: occupancy_mapper: 320x320 cells at 0.05 m (16 x 16 m centred on the odom origin)
+[patrol_fsm-2] [INFO] [1790172510.686850144] [patrol_fsm]: PatrolFSM ready in state IDLE (holonomic=True, auto_start=False)
+[path_planner-4] [INFO] [1790172510.704028943] [path_planner]: path_planner: footprint radius 0.226 m blocks the map, cost decays to 0 at 0.55 m
+[patrol_fsm-2] [INFO] [1790172525.768394017] [patrol_fsm]: operator command: start
+[patrol_fsm-2] [INFO] [1790172525.820599568] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[patrol_fsm-2] [INFO] [1790172557.127156576] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[patrol_fsm-2] [INFO] [1790172564.665500344] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.27
+[patrol_fsm-2] [INFO] [1790172578.458903810] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[patrol_fsm-2] [INFO] [1790172578.589471026] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172581.497829421] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger timer.back = 1.50
+[patrol_fsm-2] [INFO] [1790172581.602372961] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172583.370120344] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger timer.back = 1.50
+[patrol_fsm-2] [INFO] [1790172583.490423834] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.11
+[patrol_fsm-2] [INFO] [1790172585.288576888] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger timer.back = 1.50
+[patrol_fsm-2] [INFO] [1790172585.425042189] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.11
+[patrol_fsm-2] [INFO] [1790172586.809186210] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger timer.back = 1.20
+[patrol_fsm-2] [INFO] [1790172588.575321931] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.92
+[patrol_fsm-2] [INFO] [1790172593.169974864] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[patrol_fsm-2] [INFO] [1790172596.692095347] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.11
+[patrol_fsm-2] [INFO] [1790172597.848660233] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.25
+[patrol_fsm-2] [INFO] [1790172597.980174201] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172598.090678349] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.23
+[patrol_fsm-2] [INFO] [1790172598.198415407] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172598.317793882] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172598.429871878] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172598.552489672] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172598.659078021] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172598.782918120] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172598.914536520] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172599.014562068] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.23
+[patrol_fsm-2] [INFO] [1790172599.144671752] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172599.258156648] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172599.363804197] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172599.478055698] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172599.592560657] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172599.709816805] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172599.818117944] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172599.945856136] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172600.074204973] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172600.174288496] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172600.303317648] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172600.430571151] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172600.539724485] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172600.655551897] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172600.771312159] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172600.884705171] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172600.990711995] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172601.122645564] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172601.243652879] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172601.347325653] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.23
+[patrol_fsm-2] [INFO] [1790172601.469834933] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172601.592696297] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172601.703775210] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172601.804852782] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.23
+[patrol_fsm-2] [INFO] [1790172601.937967793] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172602.047586604] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172602.158007634] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172602.289167796] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172602.409318737] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172602.524130500] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172602.639820520] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172602.764126272] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172602.879581044] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172602.979152518] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.23
+[patrol_fsm-2] [INFO] [1790172603.109762539] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172603.215808146] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.23
+[patrol_fsm-2] [INFO] [1790172603.323060546] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172603.443194429] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172603.553650418] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172603.679449699] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172603.783718561] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172603.905692694] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172604.015772661] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172604.115652527] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172604.247616135] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172604.355942384] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172604.462591324] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172604.577598763] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172604.692179363] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172604.812862816] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172604.918401084] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172605.041119782] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172605.168214439] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172605.268316825] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172605.399693573] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172605.525307919] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.22
+[patrol_fsm-2] [INFO] [1790172605.638051938] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172605.742816563] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger ultrasonic.rear = 0.23
+[patrol_fsm-2] [INFO] [1790172605.862258897] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1790172605.975774272] [patrol_fsm]: [FSM] BACKING_OFF -> ALERT | trigger timer.avoid = 10.20 STUCK
+[patrol_fsm-2] [ERROR] [1790172605.976051790] [patrol_fsm]: ALERT reason=STUCK sensor=timer.avoid value=10.20 from=BACKING_OFF
+[patrol_fsm-2] [INFO] [1790172609.765015560] [patrol_fsm]: operator command: reset
+[patrol_fsm-2] [INFO] [1790172609.807776200] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset
+[patrol_fsm-2] [INFO] [1790172612.178694108] [patrol_fsm]: operator command: start
+[patrol_fsm-2] [INFO] [1790172612.265791724] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[patrol_fsm-2] [INFO] [1790172614.144752511] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[patrol_fsm-2] [INFO] [1790172618.510551022] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> ALERT | trigger imu.tilt_deg = 80.01 TIPPING
+[patrol_fsm-2] [ERROR] [1790172618.510813848] [patrol_fsm]: ALERT reason=TIPPING sensor=imu.tilt_deg value=80.01 from=OBSTACLE_AVOIDANCE
+[patrol_fsm-2] [INFO] [1790172625.868328216] [patrol_fsm]: operator command: reset
+[patrol_fsm-2] [INFO] [1790172625.944616362] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset
+[patrol_fsm-2] [INFO] [1790172628.278049927] [patrol_fsm]: operator command: start
+[patrol_fsm-2] [INFO] [1790172628.341201297] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[patrol_fsm-2] [INFO] [1790172632.037358526] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[patrol_fsm-2] [INFO] [1790172632.718957497] [patrol_fsm]: parameter imu_accel_spike = 2.0 (live)
+[patrol_fsm-2] [INFO] [1790172635.264321469] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.80
+[patrol_fsm-2] [INFO] [1790172637.362103310] [patrol_fsm]: [FSM] PATROLLING -> ALERT | trigger imu.a_xy = 4.95 COLLISION
+[patrol_fsm-2] [ERROR] [1790172637.362376925] [patrol_fsm]: ALERT reason=COLLISION sensor=imu.a_xy value=4.95 from=PATROLLING
+[patrol_fsm-2] [INFO] [1790172643.956721553] [patrol_fsm]: parameter imu_accel_spike = 8.0 (live)
+[patrol_fsm-2] [INFO] [1790172644.103027996] [patrol_fsm]: operator command: reset
+[patrol_fsm-2] [INFO] [1790172644.192484816] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset
+[patrol_fsm-2] [INFO] [1790172646.564668772] [patrol_fsm]: operator command: start
+[patrol_fsm-2] [INFO] [1790172646.640374402] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[patrol_fsm-2] [INFO] [1790172648.253439356] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[scan_to_range-1] Traceback (most recent call last):
+[scan_to_range-1]   File "/root/ros2_ws/install/sentinel_patrol/lib/sentinel_patrol/scan_to_range", line 33, in <module>
+[scan_to_range-1]     sys.exit(load_entry_point('sentinel-patrol==0.1.0', 'console_scripts', 'scan_to_range')())
+[scan_to_range-1]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[scan_to_range-1]   File "/root/ros2_ws/install/sentinel_patrol/lib/python3.12/site-packages/sentinel_patrol/scan_to_range_node.py", line 154, in main
+[scan_to_range-1]     rclpy.spin(node)
+[scan_to_range-1]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[scan_to_range-1]     executor.spin_once()
+[scan_to_range-1]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
+[scan_to_range-1]     self._spin_once_impl(timeout_sec)
+[scan_to_range-1]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 907, in _spin_once_impl
+[scan_to_range-1]     handler, entity, node = self.wait_for_ready_callbacks(
+[scan_to_range-1]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[scan_to_range-1]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 877, in wait_for_ready_callbacks
+[scan_to_range-1]     return next(self._cb_iter)
+[scan_to_range-1]            ^^^^^^^^^^^^^^^^^^^
+[scan_to_range-1]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 757, in _wait_for_ready_callbacks
+[scan_to_range-1]     wait_set = _rclpy.WaitSet(
+[scan_to_range-1]                ^^^^^^^^^^^^^^^
+[scan_to_range-1] rclpy._rclpy_pybind11.RCLError: failed to initialize wait set: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/wait.c:130
+[ERROR] [scan_to_range-1]: process has died [pid 7571, exit code 1, cmd '/root/ros2_ws/install/sentinel_patrol/lib/sentinel_patrol/scan_to_range --ros-args -r __node:=scan_to_range --params-file /root/ros2_ws/install/sentinel_patrol/share/sentinel_patrol/config/patrol_params.yaml --params-file /tmp/launch_params_42761z2p'].
+[patrol_fsm-2] [INFO] [1790172652.658121446] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> ALERT | trigger sensor.age_s = 1.08 SENSOR_LOST
+[patrol_fsm-2] [ERROR] [1790172652.658410908] [patrol_fsm]: ALERT reason=SENSOR_LOST sensor=sensor.age_s value=1.08 from=OBSTACLE_AVOIDANCE
+[patrol_fsm-2] [INFO] [1790172659.879354864] [patrol_fsm]: operator command: reset
+[patrol_fsm-2] [INFO] [1790172659.981451694] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset
+[patrol_fsm-2] [INFO] [1790172663.632448553] [patrol_fsm]: goal accepted: x=0.55 y=-0.55 (odom)
+[patrol_fsm-2] [INFO] [1790172663.699431634] [patrol_fsm]: [FSM] IDLE -> NAVIGATING | trigger goal.distance = 1.96 goal
+[patrol_fsm-2] [INFO] [1790172664.065000024] [patrol_fsm]: [FSM] NAVIGATING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.34
+[patrol_fsm-2] [INFO] [1790172669.860156090] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 0.92
+[patrol_fsm-2] [INFO] [1790172698.439431474] [patrol_fsm]: [FSM] NAVIGATING -> IDLE | trigger goal.distance = 0.10 GOAL_REACHED

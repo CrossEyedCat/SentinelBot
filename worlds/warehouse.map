@@ -1,0 +1,8 @@
+# read by tools/record_column_tour.sh for MAP=warehouse
+WORLD=warehouse.sdf
+SPAWN_X=-2.00
+SPAWN_Y=0.00
+RING=0.55
+TRANSIT=true
+COLUMNS="[-1.200,1.500,1.200,1.500,1.200,-1.500,-1.200,-1.500]"
+PLANNER_MARGIN=0.15

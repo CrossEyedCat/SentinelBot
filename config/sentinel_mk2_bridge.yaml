@@ -1,0 +1,55 @@
+# ros_gz_bridge configuration for the SentinelBot Mk II model
+- ros_topic_name: "clock"
+  gz_topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+# resultant wheel wrench from mecanum_base_sim -> ApplyLinkWrench system (world "default")
+- ros_topic_name: "wrench_clear"
+  gz_topic_name: "/world/default/wrench/clear"
+  ros_type_name: "ros_gz_interfaces/msg/Entity"
+  gz_type_name: "gz.msgs.Entity"
+  direction: ROS_TO_GZ
+- ros_topic_name: "wrench_persistent"
+  gz_topic_name: "/world/default/wrench/persistent"
+  ros_type_name: "ros_gz_interfaces/msg/EntityWrench"
+  gz_type_name: "gz.msgs.EntityWrench"
+  direction: ROS_TO_GZ
+
+# wheel spin: mecanum_base_sim works out each wheel's angular velocity from the body velocity and the
+# mecanum inverse kinematics, and the gz JointController turns the wheel at that rate
+- {ros_topic_name: "wheel_fl_cmd", gz_topic_name: "/model/sentinel_mk2/wheel_fl/cmd_vel", ros_type_name: "std_msgs/msg/Float64", gz_type_name: "gz.msgs.Double", direction: ROS_TO_GZ}
+- {ros_topic_name: "wheel_fr_cmd", gz_topic_name: "/model/sentinel_mk2/wheel_fr/cmd_vel", ros_type_name: "std_msgs/msg/Float64", gz_type_name: "gz.msgs.Double", direction: ROS_TO_GZ}
+- {ros_topic_name: "wheel_rl_cmd", gz_topic_name: "/model/sentinel_mk2/wheel_rl/cmd_vel", ros_type_name: "std_msgs/msg/Float64", gz_type_name: "gz.msgs.Double", direction: ROS_TO_GZ}
+- {ros_topic_name: "wheel_rr_cmd", gz_topic_name: "/model/sentinel_mk2/wheel_rr/cmd_vel", ros_type_name: "std_msgs/msg/Float64", gz_type_name: "gz.msgs.Double", direction: ROS_TO_GZ}
+
+- {ros_topic_name: "joint_states", gz_topic_name: "/model/sentinel_mk2/joint_state", ros_type_name: "sensor_msgs/msg/JointState", gz_type_name: "gz.msgs.Model", direction: GZ_TO_ROS}
+
+- ros_topic_name: "odom"
+  gz_topic_name: "/model/sentinel_mk2/odometry"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "gz.msgs.Odometry"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "imu"
+  gz_topic_name: "imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "scan"
+  gz_topic_name: "scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# one raw LaserScan per physical range sensor; scan_to_range (mode: per_sensor) turns each into sensor_msgs/Range
+- {ros_topic_name: "us_front", gz_topic_name: "us_front", ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}
+- {ros_topic_name: "us_rear",  gz_topic_name: "us_rear",  ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}
+- {ros_topic_name: "us_left",  gz_topic_name: "us_left",  ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}
+- {ros_topic_name: "us_right", gz_topic_name: "us_right", ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}
+- {ros_topic_name: "ir_fl", gz_topic_name: "ir_fl", ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}
+- {ros_topic_name: "ir_fr", gz_topic_name: "ir_fr", ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}
+- {ros_topic_name: "ir_rl", gz_topic_name: "ir_rl", ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}
+- {ros_topic_name: "ir_rr", gz_topic_name: "ir_rr", ros_type_name: "sensor_msgs/msg/LaserScan", gz_type_name: "gz.msgs.LaserScan", direction: GZ_TO_ROS}

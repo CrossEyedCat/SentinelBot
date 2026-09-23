@@ -1,0 +1,14 @@
+[INFO] [1788772071.394497616] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 0.92
+[INFO] [1788772087.819979679] [patrol_fsm]: [FSM] NAVIGATING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[INFO] [1788772090.194768114] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 1.71
+[INFO] [1788772110.262515607] [patrol_fsm]: [FSM] NAVIGATING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.45
+[INFO] [1788772114.926294960] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 0.97
+[INFO] [1788772119.461479818] [patrol_fsm]: [FSM] NAVIGATING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[INFO] [1788772124.060417806] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 1.17
+[INFO] [1788772131.343990096] [patrol_fsm]: [FSM] NAVIGATING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.41
+[INFO] [1788772141.072065238] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 1.22
+[INFO] [1788772148.539900307] [patrol_fsm]: [FSM] NAVIGATING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.31
+[INFO] [1788772150.689427010] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 2.81
+[INFO] [1788772159.612234952] [patrol_fsm]: [FSM] NAVIGATING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.23
+[INFO] [1788772162.935251422] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> NAVIGATING | trigger ultrasonic.front = 0.83
+[INFO] [1788772168.378666473] [patrol_fsm]: [FSM] NAVIGATING -> IDLE | trigger avoid.episodes = 9.00 GOAL_UNREACHABLE

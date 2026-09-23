@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+  Static overview camera for the mission video: parked south of the arena, above the wall, looking
+  down at the origin so all nine columns and the robot's laps are in frame. Recording aid only -
+  it is spawned next to the robot, never part of it.
+
+  Pose: yaw pi/2 turns the camera's +X to face north, pitch 0.971 tilts it 56 deg down; from
+  (0, -2.6, 3.9) that aims at (0, 0, 0.1), 4.60 m away, and hfov 0.96 spans 4.9 m across the middle.
+  The steep angle is deliberate: from a lower camera the robot disappears behind a column every
+  time its lap takes it round the far side. At this height the sight line clears a 0.5 m column
+  by 0.33 m instead of 0.15 m.
+-->
+<sdf version="1.9">
+  <model name="overview_cam">
+    <static>true</static>
+    <link name="link">
+      <pose>0 -2.6 3.9 0 0.971 1.5708</pose>
+      <sensor name="overview_cam_sensor" type="camera">
+        <always_on>1</always_on>
+        <update_rate>3.5</update_rate>
+        <topic>overview_cam</topic>
+        <camera>
+          <horizontal_fov>0.96</horizontal_fov>
+          <image><width>960</width><height>720</height><format>R8G8B8</format></image>
+          <clip><near>0.1</near><far>60</far></clip>
+        </camera>
+      </sensor>
+    </link>
+  </model>
+</sdf>

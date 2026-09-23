@@ -1,0 +1,19 @@
+[INFO] [1788769302.719121630] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[INFO] [1788769339.106842686] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[INFO] [1788769344.014527413] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.24
+[INFO] [1788769358.196961356] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.25
+[INFO] [1788769359.268311146] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[INFO] [1788769361.221605576] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger timer.back = 1.50
+[INFO] [1788769369.331908080] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.90
+[INFO] [1788769378.522254391] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.48
+[INFO] [1788769381.021907048] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.83
+[INFO] [1788769385.385411457] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[INFO] [1788769391.036964908] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.05
+[INFO] [1788769400.534354373] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[INFO] [1788769403.914010770] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.81
+[INFO] [1788769408.812594656] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[INFO] [1788769412.028527466] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.82
+[INFO] [1788769416.837218484] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.48
+[INFO] [1788769423.298294263] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> ALERT | trigger imu.tilt_deg = 80.04 TIPPING
+[ERROR] [1788769423.298717447] [patrol_fsm]: ALERT reason=TIPPING sensor=imu.tilt_deg value=80.04 from=OBSTACLE_AVOIDANCE
+[INFO] [1788769432.817637796] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset

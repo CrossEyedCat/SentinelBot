@@ -1,0 +1,10 @@
+[INFO] [1788546908.445466467] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[INFO] [1788546938.469623489] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[INFO] [1788546942.307794565] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.25
+[INFO] [1788546951.270898842] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[INFO] [1788546952.466642788] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.37
+[INFO] [1788546962.797536662] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[INFO] [1788546964.225262539] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.62
+[INFO] [1788546966.724874652] [patrol_fsm]: [FSM] PATROLLING -> ALERT | trigger imu.tilt_deg = 49.79 TIPPING
+[ERROR] [1788546966.725409577] [patrol_fsm]: ALERT reason=TIPPING sensor=imu.tilt_deg value=49.79 from=PATROLLING
+[INFO] [1788546976.209495137] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset

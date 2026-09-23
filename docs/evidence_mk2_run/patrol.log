@@ -1,0 +1,29 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-09-07-10-21-36-043772-DESKTOP-PV0OFAA-919
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [scan_to_range-1]: process started with pid [933]
+[INFO] [patrol_fsm-2]: process started with pid [934]
+[scan_to_range-1] [INFO] [1788769296.325498232] [scan_to_range]: scan_to_range (per_sensor): us_front -> /ultrasonic, us_rear -> /ultrasonic_rear, us_left -> /ultrasonic_left, us_right -> /ultrasonic_right, ir_fl -> /ir_left, ir_fr -> /ir_right
+[patrol_fsm-2] [INFO] [1788769296.330444842] [patrol_fsm]: PatrolFSM ready in state IDLE (holonomic=True, auto_start=False)
+[patrol_fsm-2] [INFO] [1788769302.712774082] [patrol_fsm]: operator command: start
+[patrol_fsm-2] [INFO] [1788769302.719121630] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[patrol_fsm-2] [INFO] [1788769339.106842686] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[patrol_fsm-2] [INFO] [1788769344.014527413] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.24
+[patrol_fsm-2] [INFO] [1788769358.196961356] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.25
+[patrol_fsm-2] [INFO] [1788769359.268311146] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> BACKING_OFF | trigger ir.min = 0.10
+[patrol_fsm-2] [INFO] [1788769361.221605576] [patrol_fsm]: [FSM] BACKING_OFF -> OBSTACLE_AVOIDANCE | trigger timer.back = 1.50
+[patrol_fsm-2] [INFO] [1788769369.331908080] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.90
+[patrol_fsm-2] [INFO] [1788769378.522254391] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.48
+[patrol_fsm-2] [INFO] [1788769381.021907048] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.83
+[patrol_fsm-2] [INFO] [1788769385.385411457] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[patrol_fsm-2] [INFO] [1788769391.036964908] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.05
+[patrol_fsm-2] [INFO] [1788769400.534354373] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[patrol_fsm-2] [INFO] [1788769403.914010770] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.81
+[patrol_fsm-2] [INFO] [1788769408.812594656] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[patrol_fsm-2] [INFO] [1788769412.028527466] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 0.82
+[patrol_fsm-2] [INFO] [1788769416.837218484] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.48
+[patrol_fsm-2] [INFO] [1788769423.298294263] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> ALERT | trigger imu.tilt_deg = 80.04 TIPPING
+[patrol_fsm-2] [ERROR] [1788769423.298717447] [patrol_fsm]: ALERT reason=TIPPING sensor=imu.tilt_deg value=80.04 from=OBSTACLE_AVOIDANCE
+[patrol_fsm-2] [INFO] [1788769432.769409744] [patrol_fsm]: operator command: reset
+[patrol_fsm-2] [INFO] [1788769432.817637796] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset
+[INFO] [scan_to_range-1]: process has finished cleanly [pid 933]
+[INFO] [patrol_fsm-2]: process has finished cleanly [pid 934]

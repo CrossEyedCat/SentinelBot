@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.benchmarks/
+*.egg-info/
+.venv/
+# colcon output, when the package is built in place
+build/
+install/
+log/
+# figures redrawn by tools/report_figures.py
+/figures/
+/docs/submission/

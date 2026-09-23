@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+  Top-down camera for the FSM demonstration (tools/record_fsm_demo.sh): 5 m straight above the middle of
+  the TurtleBot3 arena, image up = north, so the whole hexagon is in frame and the robot is never cut
+  off at an edge, wherever the scenario leaves it. hfov 1.14 rad spans 6.4 m across the floor, about
+  150 px per metre at 960 px. Publishes on the same topic as tools/overview_cam.sdf, so
+  tools/mission_grab.py records it unchanged. Recording aid only; never part of the robot.
+-->
+<sdf version="1.9">
+  <model name="overview_cam">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 5.0 0 1.5708 1.5708</pose>
+      <sensor name="overview_cam_sensor" type="camera">
+        <always_on>1</always_on>
+        <update_rate>7</update_rate>
+        <topic>overview_cam</topic>
+        <camera>
+          <horizontal_fov>1.14</horizontal_fov>
+          <image><width>960</width><height>720</height><format>R8G8B8</format></image>
+          <clip><near>0.1</near><far>60</far></clip>
+        </camera>
+      </sensor>
+    </link>
+  </model>
+</sdf>

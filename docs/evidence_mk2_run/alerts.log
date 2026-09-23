@@ -1,0 +1,2 @@
+data: ALERT reason=TIPPING sensor=imu.tilt_deg value=80.04 from=OBSTACLE_AVOIDANCE
+---

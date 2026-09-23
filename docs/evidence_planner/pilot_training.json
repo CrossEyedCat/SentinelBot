@@ -1,0 +1,114 @@
+{
+ "seed": 0,
+ "eval_laps": 40,
+ "epochs": 120,
+ "stages": [
+  {
+   "stage": "behaviour cloning",
+   "samples": 9779,
+   "loss": 0.009166814520116013,
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 17.047500000000003,
+   "speed": 0.21939723258555374,
+   "stationary": 0.029329813755682648,
+   "yaw_rate": 0.41659121386540265,
+   "min_clear": 0.22684653398691765
+  },
+  {
+   "stage": "DAgger round 1",
+   "samples": 16730,
+   "loss": 0.008270574651160845,
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 16.597500000000004,
+   "speed": 0.221869968476553,
+   "stationary": 0.060250037656273535,
+   "yaw_rate": 0.4294947891736488,
+   "min_clear": 0.22823487656927247
+  },
+  {
+   "stage": "DAgger round 2",
+   "samples": 23509,
+   "loss": 0.007783488980613627,
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 16.7875,
+   "speed": 0.2224088401886886,
+   "stationary": 0.07446016381236038,
+   "yaw_rate": 0.4265099941475594,
+   "min_clear": 0.22833784582647362
+  },
+  {
+   "stage": "DAgger round 3",
+   "samples": 30129,
+   "loss": 0.007294395561845764,
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 16.8075,
+   "speed": 0.22180492183415113,
+   "stationary": 0.029748624126134167,
+   "yaw_rate": 0.42430650511426,
+   "min_clear": 0.2279836329609077
+  },
+  {
+   "stage": "DAgger round 4",
+   "samples": 36881,
+   "loss": 0.005978867354442594,
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 16.515,
+   "speed": 0.22379477817230653,
+   "stationary": 0.015137753557372086,
+   "yaw_rate": 0.432362678710666,
+   "min_clear": 0.22844151163156537
+  }
+ ],
+ "controllers": {
+  "teacher": {
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 16.672500000000003,
+   "speed": 0.22278314192323018,
+   "stationary": 0.05997900734742839,
+   "yaw_rate": 0.4284479965866019,
+   "min_clear": 0.22613566919133574
+  },
+  "student": {
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 16.515,
+   "speed": 0.22379477817230653,
+   "stationary": 0.015137753557372086,
+   "yaw_rate": 0.432362678710666,
+   "min_clear": 0.22844151163156537
+  },
+  "hand law (waypoints)": {
+   "completed": 80.0,
+   "collided": 0.0,
+   "lap_time": 32.175,
+   "speed": 0.11017092858063811,
+   "stationary": 35.017574692442885,
+   "yaw_rate": 0.21002507570956067,
+   "min_clear": 0.22520846183340995
+  },
+  "hand law (whole lap)": {
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 11.790000000000001,
+   "speed": 0.29115492933746706,
+   "stationary": 0.23324851569126379,
+   "yaw_rate": 0.5679101282964656,
+   "min_clear": 0.2249211529627186
+  },
+  "deployed pilot": {
+   "completed": 100.0,
+   "collided": 0.0,
+   "lap_time": 16.4,
+   "speed": 0.2258081076619888,
+   "stationary": 0.06097560975609756,
+   "yaw_rate": 0.43722542603897924,
+   "min_clear": 0.2269725738005495
+  }
+ }
+}

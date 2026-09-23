@@ -1,0 +1,40 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-09-04-20-35-01-832299-DESKTOP-PV0OFAA-19594
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [scan_to_range-1]: process started with pid [19598]
+[INFO] [patrol_fsm-2]: process started with pid [19599]
+[scan_to_range-1] [INFO] [1788546902.092675764] [scan_to_range]: scan_to_range: publishing /ultrasonic, /ultrasonic_rear, /ultrasonic_left, /ultrasonic_right, /ir_left, /ir_right
+[patrol_fsm-2] [INFO] [1788546902.092794142] [patrol_fsm]: PatrolFSM ready in state IDLE (holonomic=False, auto_start=False)
+[patrol_fsm-2] [INFO] [1788546908.429250678] [patrol_fsm]: operator command: start
+[patrol_fsm-2] [INFO] [1788546908.445466467] [patrol_fsm]: [FSM] IDLE -> PATROLLING | trigger operator = 1.00 start
+[patrol_fsm-2] [INFO] [1788546938.469623489] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.46
+[patrol_fsm-2] [INFO] [1788546942.307794565] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.25
+[patrol_fsm-2] [INFO] [1788546951.270898842] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[patrol_fsm-2] [INFO] [1788546952.466642788] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.37
+[patrol_fsm-2] [INFO] [1788546962.797536662] [patrol_fsm]: [FSM] PATROLLING -> OBSTACLE_AVOIDANCE | trigger ultrasonic.front = 0.47
+[patrol_fsm-2] [INFO] [1788546964.225262539] [patrol_fsm]: [FSM] OBSTACLE_AVOIDANCE -> PATROLLING | trigger ultrasonic.front = 1.62
+[patrol_fsm-2] [INFO] [1788546966.724874652] [patrol_fsm]: [FSM] PATROLLING -> ALERT | trigger imu.tilt_deg = 49.79 TIPPING
+[patrol_fsm-2] [ERROR] [1788546966.725409577] [patrol_fsm]: ALERT reason=TIPPING sensor=imu.tilt_deg value=49.79 from=PATROLLING
+[patrol_fsm-2] [INFO] [1788546976.120088950] [patrol_fsm]: operator command: reset
+[patrol_fsm-2] [INFO] [1788546976.209495137] [patrol_fsm]: [FSM] ALERT -> IDLE | trigger operator = 0.00 reset
+[patrol_fsm-2] Traceback (most recent call last):
+[patrol_fsm-2]   File "/root/ros2_ws/install/sentinel_patrol/lib/sentinel_patrol/patrol_fsm", line 33, in <module>
+[patrol_fsm-2]     sys.exit(load_entry_point('sentinel-patrol', 'console_scripts', 'patrol_fsm')())
+[patrol_fsm-2]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[patrol_fsm-2]   File "/root/ros2_ws/build/sentinel_patrol/sentinel_patrol/patrol_fsm_node.py", line 161, in main
+[patrol_fsm-2]     rclpy.spin(node)
+[patrol_fsm-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[patrol_fsm-2]     executor.spin_once()
+[patrol_fsm-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
+[patrol_fsm-2]     self._spin_once_impl(timeout_sec)
+[patrol_fsm-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 907, in _spin_once_impl
+[patrol_fsm-2]     handler, entity, node = self.wait_for_ready_callbacks(
+[patrol_fsm-2]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[patrol_fsm-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 877, in wait_for_ready_callbacks
+[patrol_fsm-2]     return next(self._cb_iter)
+[patrol_fsm-2]            ^^^^^^^^^^^^^^^^^^^
+[patrol_fsm-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 757, in _wait_for_ready_callbacks
+[patrol_fsm-2]     wait_set = _rclpy.WaitSet(
+[patrol_fsm-2]                ^^^^^^^^^^^^^^^
+[patrol_fsm-2] rclpy._rclpy_pybind11.RCLError: failed to initialize wait set: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/wait.c:130
+[INFO] [scan_to_range-1]: process has finished cleanly [pid 19598]
+[ERROR] [patrol_fsm-2]: process has died [pid 19599, exit code 1, cmd '/root/ros2_ws/install/sentinel_patrol/lib/sentinel_patrol/patrol_fsm --ros-args -r __node:=patrol_fsm --params-file /root/ros2_ws/install/sentinel_patrol/share/sentinel_patrol/config/patrol_params.yaml --params-file /tmp/launch_params_z_rtb9xh'].

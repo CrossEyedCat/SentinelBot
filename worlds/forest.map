@@ -1,0 +1,8 @@
+# read by tools/record_column_tour.sh for MAP=forest
+WORLD=forest.sdf
+SPAWN_X=-2.00
+SPAWN_Y=2.00
+RING=0.50
+TRANSIT=true
+COLUMNS="[-1.500,1.400,0.300,1.500,1.550,0.600,1.200,-1.400,-0.400,-0.400,-1.550,-1.400]"
+PLANNER_MARGIN=0.15

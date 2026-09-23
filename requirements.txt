@@ -1,0 +1,6 @@
+# Unit tests without ROS:  python3 -m pip install -r requirements.txt && python3 -m pytest test/
+numpy
+pytest
+# Figures (tools/report_figures.py, tools/map_figure.py) and the film panels of the recording scripts
+matplotlib
+pillow

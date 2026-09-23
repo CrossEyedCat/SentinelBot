@@ -1,0 +1,25 @@
+{
+ "note": "Summaries of the two base-arena runs whose logs were not kept (later runs overwrote them). Both were computed with tools/mission_motion.py when the runs were made on 2026-09-09; the films are docs/evidence_planner/column_tour.mp4 (waypoints) and tour_continuous.mp4.",
+ "waypoints": {
+  "time": 359,
+  "distance": 37.6,
+  "interruptions": 0,
+  "alerts": 0,
+  "completed": true,
+  "goals": 128,
+  "film": "docs/evidence_planner/column_tour.mp4"
+ },
+ "continuous": {
+  "time": 191,
+  "distance": 35.3,
+  "interruptions": 0,
+  "alerts": 0,
+  "completed": true,
+  "turn_pct": 10.3,
+  "both_pct": 54.8,
+  "idle_pct": 19.0,
+  "yaw_per_m": 117,
+  "goals": 27,
+  "film": "docs/evidence_planner/tour_continuous.mp4"
+ }
+}

@@ -1,0 +1,210 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Map1
+        - /LaserScan1
+      Splitter Ratio: 0.5
+    Tree Height: 620
+  - Class: rviz_common/Tool Properties
+    Name: Tool Properties
+    Expanded:
+      - /2D Goal Pose1
+Visualization Manager:
+  Class: ""
+  Name: root
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: odom
+    Frame Rate: 30
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 1
+      Plane Cell Count: 20
+      Color: 90; 90; 90
+      Alpha: 0.4
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/Map
+      Name: Map
+      Enabled: true
+      Topic:
+        Value: /map
+        Depth: 1
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+      Alpha: 0.8
+      Color Scheme: map
+      Draw Behind: true
+      Update Topic:
+        Value: /map_updates
+    - Class: rviz_default_plugins/LaserScan
+      Name: LaserScan
+      Enabled: true
+      Topic:
+        Value: /scan
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        History Policy: Keep Last
+      Size (m): 0.04
+      Style: Spheres
+      Color: 255; 85; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Position Transformer: XYZ
+    - Class: rviz_default_plugins/Odometry
+      Name: Odometry
+      Enabled: true
+      Topic:
+        Value: /odom
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        History Policy: Keep Last
+      Keep: 1
+      Shape:
+        Value: Arrow
+        Alpha: 1
+        Color: 0; 200; 180
+        Shaft Length: 0.25
+        Shaft Radius: 0.04
+        Head Length: 0.1
+        Head Radius: 0.08
+      Covariance:
+        Value: false
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Show Names: true
+      Show Axes: true
+      Show Arrows: false
+      Marker Scale: 0.4
+      Frame Timeout: 15
+      Update Interval: 0
+    - Class: rviz_default_plugins/Map
+      Name: Costmap
+      Enabled: true
+      Topic:
+        Value: /costmap
+        Depth: 1
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+      Alpha: 0.45
+      Color Scheme: costmap
+      Draw Behind: false
+      Update Topic:
+        Value: /costmap_updates
+    - Class: rviz_default_plugins/Path
+      Name: Path planned
+      Enabled: true
+      Topic:
+        Value: /path_planned
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+      Color: 60; 140; 255
+      Alpha: 1
+      Line Style: Lines
+      Line Width: 0.04
+      Buffer Length: 1
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.03
+      Pose Style: None
+    - Class: rviz_default_plugins/Path
+      Name: Path travelled
+      Enabled: true
+      Topic:
+        Value: /path_travelled
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+      Color: 25; 210; 120
+      Alpha: 1
+      Line Style: Lines
+      Line Width: 0.03
+      Buffer Length: 1
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.01
+      Pose Style: None
+    - Class: rviz_default_plugins/Path
+      Name: Line to goal
+      Enabled: true
+      Topic:
+        Value: /path_to_goal
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+      Color: 255; 200; 0
+      Alpha: 1
+      Line Style: Lines
+      Line Width: 0.03
+      Buffer Length: 1
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.02
+      Pose Style: None
+    - Class: rviz_default_plugins/Pose
+      Name: Goal
+      Enabled: true
+      Topic:
+        Value: /goal_pose
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+      Shape: Arrow
+      Color: 255; 25; 0
+      Alpha: 1
+      Shaft Length: 0.4
+      Shaft Radius: 0.05
+      Head Length: 0.15
+      Head Radius: 0.1
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+    - Class: rviz_default_plugins/Measure
+      Line color: 128; 128; 0
+  Global Options Tool: ""
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Target Frame: <Fixed Frame>
+      Scale: 90
+      X: 0
+      Y: 0
+      Angle: 0
+      Invert Z Axis: false
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 900
+  Width: 1400
+  Hide Left Dock: false
+  Hide Right Dock: true
+  Tool Properties:
+    collapsed: false

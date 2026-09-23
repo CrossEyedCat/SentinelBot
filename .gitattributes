@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.mp4 binary
+*.stl binary
+*.npy binary
+*.npz binary
+*.pt binary

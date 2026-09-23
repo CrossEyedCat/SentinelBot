@@ -1,0 +1,44 @@
+   13.11  IDLE: sensors fresh, waiting for the operator
+   17.15  Operator: start (ros2 topic pub /patrol_cmd start)
+   17.24  Patrol: drive straight until the front ultrasonic reads under 0.50 m
+   44.25  Obstacle inside the stop band: turn towards the freer infrared side
+   50.72  Front clear above 0.70 m for 0.5 s: patrol resumes
+   62.64  A box placed against the front-left corner, 0.11 m from the infrared sensor
+   62.64  Infrared under 0.12 m: reverse until both corners read over 0.18 m
+   74.41  The robot boxed in on four sides
+   74.41  No free side: the avoidance episode runs past its 10 s limit
+   84.10  ALERT: STUCK. Zero velocity; only the operator can release it
+   87.26  Operator: reset
+   89.41  Operator: start
+   94.51  The robot tipped onto its side (pose set in Gazebo)
+   94.71  ALERT: TIPPING, tilt over 30 deg from the IMU orientation
+  100.94  Robot set upright. Operator: reset
+  103.12  Operator: start
+  106.88  Collision threshold lowered to 2 m/s2 for the test (ros2 param set)
+  109.95  A strike from the left, outside the ultrasonic cone
+  110.95  ALERT: COLLISION, horizontal acceleration over the threshold twice
+  115.72  Threshold restored to 8 m/s2. Operator: reset
+  117.92  Operator: start
+  121.97  Range adapter node stopped while driving
+  123.04  ALERT: SENSOR_LOST, no range reading for 1 s
+  126.18  Adapter restarted. Operator: reset
+  132.44  Goal sent on /goal_pose: A* over the costmap the robot built
+  162.82  Goal reached within 0.10 m: back to IDLE
+  166.85  End of the demonstration
+{
+ "IDLE->PATROLLING": true,
+ "PATROLLING->OBSTACLE_AVOIDANCE": true,
+ "OBSTACLE_AVOIDANCE->PATROLLING": true,
+ "OBSTACLE_AVOIDANCE->BACKING_OFF": true,
+ "OBSTACLE_AVOIDANCE->ALERT (stuck)": true,
+ "ALERT->IDLE (stuck)": true,
+ "PATROLLING->ALERT (tipping)": true,
+ "ALERT->IDLE (tipping)": true,
+ "PATROLLING->ALERT (collision)": true,
+ "ALERT->IDLE (collision)": true,
+ "PATROLLING->ALERT (sensor lost)": true,
+ "ALERT->IDLE (sensor lost)": true,
+ "IDLE->NAVIGATING": true,
+ "NAVIGATING->IDLE (arrival)": true
+}
+terminate called without an active exception
